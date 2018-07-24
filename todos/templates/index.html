@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<title>To-Do List</title>
+</head>
+
+<body>
+
+<header><h1>To Do List</h1></header>
+<form action="/todos/add">
+    <input type="submit" value="New" />
+</form>
+<hr>
+<br>
+	<table>
+
+		<tr>
+			<th>To-Do</th>
+			<th>Task</th>
+		</tr>
+		{% for todo in todos %}
+			<tr><td><a href="/todos/details/{{todo.id}}">{{todo.title}}</a></td> <td>{{todo.task}}</td></tr>
+		{% endfor %}
+
+	</table>
+
+
+</body>
+</html>
+
+
+
